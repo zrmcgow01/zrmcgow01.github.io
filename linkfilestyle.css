@@ -10,6 +10,11 @@ h2 {
 	color: rgb(143, 188, 205);
 }
 
+h3 {
+	font-family: "Lucida Console", Monaco, monospace;
+	margin-left: 3em;
+}
+
 #tufts{
 	font-weight: bold;
 }
@@ -28,6 +33,10 @@ h2 {
 	font-style: italic;
 }
 
+#entourage{
+		font-style: italic;
+	
+}
 #tasklist{
 	margin-left: 3em;
 	font-size: 14px;
@@ -35,4 +44,13 @@ h2 {
 
 span.tufts{
 	font-weight: bold;
+}
+
+.indentedlist{
+	margin-left: 5em;
+}
+
+.images{
+	width:  50%;
+	margin: 0 auto;
 }
