@@ -50,7 +50,12 @@ span.tufts{
 	margin-left: 5em;
 }
 
-.images{
-	width:  50%;
-	margin: 0 auto;
+.images img{
+	height: 125px;
+	width:  150px;
 }
+
+.allimages{
+		margin-left: 20%;
+}
+

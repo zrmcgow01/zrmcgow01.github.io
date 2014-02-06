@@ -13,9 +13,10 @@ h1{
 	border-width: thick;
 }
 
-.image{
-	width:  50%;
-	margin: 0 auto;
-	
+.image img{
+	margin-left: 30%;
+	margin-right: 30%;
+	height: 15em;
+	width:  20em;
 }
 
