@@ -1,0 +1,22 @@
+h1{
+	text-align: center;
+	font-family: 'Monaco' ;
+	border-bottom: 4px outset;
+	border-bottom-color: red;
+	background-color: rgb(143, 188, 205);
+}
+
+.links ul{
+	list-style-type: square;
+	margin-left: 20%;
+	margin-right: 20%;
+	border: 4px outset;
+	border-width: thick;
+}
+
+.image{
+	margin-left: 25%;
+	margin-right: 20%;
+	
+}
+
