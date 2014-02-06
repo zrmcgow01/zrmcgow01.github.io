@@ -19,16 +19,16 @@ h3 {
 	font-weight: bold;
 }
 
-#info{
+.info{
 	margin-left: 3em;
 }
 
-#employer{
+.employer{
 	margin-left:  3em;
 	font-weight: bold;
 }
 
-#position{
+.position{
 	margin-left:  3em;
 	font-style: italic;
 }
@@ -37,7 +37,7 @@ h3 {
 		font-style: italic;
 	
 }
-#tasklist{
+.tasklist{
 	margin-left: 3em;
 	font-size: 14px;
 }
