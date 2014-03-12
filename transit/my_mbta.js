@@ -42,7 +42,6 @@ function initialize(position) {
 		title: "You are here!"
 	});
 	myMarker.setMap(map);
-	//infoWindow = new google.maps.InfoWindow();
 	google.maps.event.addListener(myMarker, 'click', function(){
 				infoWindow.setContent(myMarker.title);
 				infoWindow.open(map, myMarker);
@@ -52,34 +51,16 @@ function initialize(position) {
 			var index = i;
 			var j = 0;
 			while(data[i]["stations"][j] != null){
-				//console.log("latitude" + data[i]["stations"][j]["latitude"]);
-				//console.log("longitude" + data[i]["stations"][j]["longitude"]);
 				stationLoc = new google.maps.LatLng(data[i]["stations"][j]["latitude"],data[i]["stations"][j]["longitude"]);
 				stationMarkers.push(createMarker(stationLoc, data[i]["stations"][j]["station_name"], map));
-				//stationMarkers.push(new google.maps.Marker({
-				//	position: stationLoc,
-				//	title: data[i]["stations"][j]["station_name"]
-				//}));
-				//console.log(stationMarkers[j]);
 				j++;
-			}
-			for(var m in stationMarkers) {
-				//stationMarkers[m].setMap(map);
-			//	console.log(data[i]["stations"][m]);
-
-				//infoWindow = new google.maps.InfoWindow();
-			//	google.maps.event.addListener(stationMarkers[m], 'click', function(){
-						//console.log("in eventListener: "+data[index]);
-			//			infoWindow.setContent(stationMarkers[m].title);
-			//			infoWindow.open(map, stationMarkers[m]);
-			//	});
 			}
 		}
 	}
 }
 
 function createMarker(pos, title, map){
-console.log(pos + " " + title);
+//console.log(pos + " " + title);
 	var marker = new google.maps.Marker({
 		position: pos,
 		title: title
