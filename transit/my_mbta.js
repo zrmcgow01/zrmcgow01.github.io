@@ -22,10 +22,11 @@ function parse_json(){
 
 		}
 	}
-	xhr.send(null);
-	
+	xhr.send(null);	
 }
+
 var stationMarkers = [];
+
 function initialize(position) {
 	console.log("here");
 	var lat = position.coords.latitude;
@@ -60,7 +61,7 @@ function initialize(position) {
 }
 
 function createMarker(pos, title, map){
-//console.log(pos + " " + title);
+    console.log(line_color);
 	var marker = new google.maps.Marker({
 		position: pos,
 		title: title
