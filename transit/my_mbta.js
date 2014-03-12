@@ -52,7 +52,7 @@ function initialize(position) {
 			while(data[i]["stations"][j] != null){
 				//console.log("latitude" + data[i]["stations"][j]["latitude"]);
 				//console.log("longitude" + data[i]["stations"][j]["longitude"]);
-				stationLoc = new google.mapsLatLng(data[i]["stations"][j]["latitude"],data[i]["stations"][j]["longitude"]);
+				stationLoc = new google.maps.LatLng(data[i]["stations"][j]["latitude"],data[i]["stations"][j]["longitude"]);
 				stationMarker = new google.maps.Marker({
 					position: stationLoc,
 					title: data[i]["stations"][j]["station_name"]
