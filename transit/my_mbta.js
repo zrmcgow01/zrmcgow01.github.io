@@ -158,3 +158,4 @@ function createMarker(pos, title, map){
 function toRad(x){
 	return (x * Math.PI / 180);
 }
+
