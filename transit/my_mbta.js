@@ -24,12 +24,12 @@ function parse_json(){
 	xhr.send(null);
 	
 }
-
+var stationMarkers = [];
 function initialize(position) {
 	console.log("back to original!");
 	var lat = position.coords.latitude;
 	var lon = position.coords.longitude;
-	var stationMarkers = [];
+
 	var myLoc = new google.maps.LatLng(lat, lon);
 	var mapOptions = {
 		center: myLoc,
