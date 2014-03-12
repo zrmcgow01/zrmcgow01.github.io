@@ -108,6 +108,7 @@ function initialize(position) {
 		zoom:13
 	};
 	var map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
+	console.log("on way out of init");
 }
 
 
