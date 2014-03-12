@@ -26,11 +26,10 @@ function parse_json(){
 }
 
 function initialize(position) {
-	console.log("one last try");
+	console.log("back to original!");
 	var lat = position.coords.latitude;
 	var lon = position.coords.longitude;
 	var stationMarkers = [];
-	var stationMark;
 	var myLoc = new google.maps.LatLng(lat, lon);
 	var mapOptions = {
 		center: myLoc,
@@ -55,28 +54,26 @@ function initialize(position) {
 				//console.log("latitude" + data[i]["stations"][j]["latitude"]);
 				//console.log("longitude" + data[i]["stations"][j]["longitude"]);
 				stationLoc = new google.maps.LatLng(data[i]["stations"][j]["latitude"],data[i]["stations"][j]["longitude"]);
-				stationMark = new google.maps.Marker({
+				stationMarkers.push(new google.maps.Marker({
 					position: stationLoc,
-					title: data[i]["stations"][j]["station_name"]					
-				});
-				stationMarkers.push(stationMark);
-				stationMarkers[j].setMap(map);
-				infoWindow = new google.maps.InfoWindow();
-				
-				google.maps.event.addListener(stationMark, 'click', function(){
-					console.log(stationMark);
-					infoWindow.setContent(stationMarke.title);
-					infoWindow.open(map, stationMark);
+					title: data[i]["stations"][j]["station_name"]
+				}));
+				infoWindow = new google.mapsInfoWindow();
+				google.maps.event.addListener(stationMarkers[j], 'click', function(){
+					infoWindow.setContent(stationMarkers[j].title);
+					infoWindow.open(map, stationMarkers[j]);
 				})
 				j++;
 			}
-			//for(var m in stationMarkers) {
-			//	stationMarkers[m].setMap(map);
-			//	google.maps.event.addListener(stationMarkers[m], 'click', function(){
-			//			infoWindow.setContent(data[index]["stations"][m]["station_name"]);
-			//			infoWindow.open(map, stationMarkers[m]);
-			//	});
-			//}
+			for(var m in stationMarkers) {
+				stationMarkers[m].setMap(map);
+				console.log(stationMarkers[m]);
+				google.maps.event.addListener(stationMarkers[m], 'click', function(){
+						console.log("in eventListener: "+stationMarkers[m]);
+						infoWindow.setContent(data[index]["stations"][m]["station_name"]);
+						infoWindow.open(map, stationMarkers[m]);
+				});
+			}
 
 		}
 	}
