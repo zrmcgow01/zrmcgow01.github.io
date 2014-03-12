@@ -10,7 +10,7 @@ function parse_json(){
 		if(xhr.readyState==4 && xhr.status==200){
 			scheduleData = JSON.parse(xhr.responseText);
 			line_color = scheduleData["line"];
-				console.log(line_color);
+				console.log(line_color+"hi");
 			if(navigator.geolocation){
 				navigator.geolocation.getCurrentPosition(initialize);
 			}
