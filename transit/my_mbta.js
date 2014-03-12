@@ -46,8 +46,6 @@ function initialize(position) {
 		title: "You are here!"
 	});
 	myMarker.setMap(map);
-	infoWindow.setContent(myMarker.title);
-	infoWindow.open(map, myMarker); //this displays the message on your location always
 
 	for(var i = 0; i < 3; i++){
 		if(data[i]["line"]==line_color){
@@ -135,6 +133,8 @@ function initialize(position) {
 				prevLoc = stationLoc;
 				j++;
 			}
+			infoWindow.setContent("<h1>You are here!</h1><p>The closest station to you is:<strong>"+closestStation+"</strong></p><p>Distance to station: <strong>"+shortest+"</strong>");
+			infoWindow.open(map, myMarker); //this displays the message on your location always
 			console.log(shortest + " " + closestStation);
 		}
 	}
