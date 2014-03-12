@@ -60,6 +60,7 @@ function initialize(position) {
 				}));
 				stationMarkers[j].setMap(map);
 				infoWindow = new google.maps.InfoWindow();
+				console.log(stationMarkers[j].title);
 				google.maps.event.addListener(stationMarkers[j], 'click', function(){
 					infoWindow.setContent(stationMarkers[j].title);
 					infoWindow.open(map, stationMarkers[j]);
