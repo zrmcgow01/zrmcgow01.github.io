@@ -63,8 +63,8 @@ function initialize(position) {
 			for(var m in stationMarkers) {
 				console.log(m);
 				stationMarkers[m].setMap(map);
-				google.maps.event.addListener(stationMarkers[m], 'click', function(){
-						infoWindow.setContent(data[index]["stations"][m]["station_name"]);
+				google.maps.event.addListener(stationMarkers[m], 'click', function(i){
+						infoWindow.setContent(data[i]["stations"][m]["station_name"]);
 						infoWindow.open(map, stationMarkers[m]);
 				});
 			}
