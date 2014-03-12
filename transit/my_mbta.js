@@ -82,12 +82,12 @@ function createMarker(pos, title, map){
 console.log(pos + " " + title);
 	var marker = new google.maps.Marker({
 		position: pos,
-		map: map,
 		title: title
 	});
 	google.maps.event.addListener(marker, 'click', function(){
 		infoWindow.setContent(title);
 		infoWindow.open(map, marker);
 	});
+	marker.setMap(map);
 	return marker;		
 }
