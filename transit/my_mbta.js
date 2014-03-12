@@ -133,7 +133,7 @@ function initialize(position) {
 				prevLoc = stationLoc;
 				j++;
 			}
-			infoWindow.setContent("<h1>You are here!</h1><p>The closest station to you is:<strong>"+closestStation+"</strong></p><p>Distance to station: <strong>"+shortest+"</strong>");
+			infoWindow.setContent("<h1>You are here!</h1><p>The closest station to you is:<strong>"+closestStation+"</strong></p><p>Distance to station: <strong>"+shortest+"</strong> miles</p>");
 			infoWindow.open(map, myMarker); //this displays the message on your location always
 			console.log(shortest + " " + closestStation);
 		}
@@ -141,9 +141,11 @@ function initialize(position) {
 }
 
 function createMarker(pos, title, map){
+	custom_icon = "t_logo.gif";
 	var marker = new google.maps.Marker({
 		position: pos,
 		title: title
+		icon: custom_icon
 	});
 	google.maps.event.addListener(marker, 'click', function(){
 		infoWindow.setContent(title);
