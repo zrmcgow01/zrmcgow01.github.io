@@ -52,7 +52,7 @@ function initialize(position) {
 			var index = i;
 			var j = 0;
 			while(data[i]["stations"][j] != null){
-				stationLoc = new google.maps.LatLng(data[i]["stations"][j]["latitude"],data[i]["stations"][j]["longitude"]);
+				stationLoc = new google.maps.LatLng(data[i]["stations"][j]["latitude"],data[i]["stations"][j]["longitude"], j);
 				stationMarkers.push(createMarker(stationLoc, data[i]["stations"][j]["station_name"], map));
 				j++;
 			}
@@ -60,8 +60,8 @@ function initialize(position) {
 	}
 }
 
-function createMarker(pos, title, map){
-    console.log(data[0]["stations"][1]);
+function createMarker(pos, title, map, station_num){
+    console.log(data[index]["stations"][station_num]);
 	var marker = new google.maps.Marker({
 		position: pos,
 		title: title
