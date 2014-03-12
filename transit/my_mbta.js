@@ -26,9 +26,11 @@ function parse_json(){
 }
 
 function initialize(position) {
+	console.log("new fix");
 	var lat = position.coords.latitude;
 	var lon = position.coords.longitude;
 	var stationMarkers = [];
+	var stationInfo = [];
 	var myLoc = new google.maps.LatLng(lat, lon);
 	var mapOptions = {
 		center: myLoc,
@@ -56,14 +58,14 @@ function initialize(position) {
 					position: stationLoc,
 					title: data[i]["stations"][j]["station_name"]
 				}));
+				stationInfo.push(new google.maps.InfoWindow());
+				stationInfo[j].setContent(stationMarkers[i].title);
 				j++;
 			}
 			for(var m in stationMarkers) {
 				stationMarkers[m].setMap(map);
-				var statinfoWindow = new google.maps.InfoWindow();
-				statinfoWindow.setContent(stationMarkers[m].title);
 				google.maps.event.addListener(stationMarkers[m], 'click', function(){
-					statinfoWindow.open(map, stationMarkers[m]);
+					stationInfo[m].open(map, stationMarkers[m]);
 				});
 			}
 
