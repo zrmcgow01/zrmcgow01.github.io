@@ -89,7 +89,7 @@ function parse_json(){
 			}
 		}
 		else if(xhr.readyState == 4 && xhr.status==500){
-			scheduleDom = document.getElementById("map_canvas");
+			scheduleDom = document.getElementById("map-canvas");
 			scheduleDom.innerHTML = '<p>There was an error loading the schedule data.  Please try again.</p>';
 
 		}
