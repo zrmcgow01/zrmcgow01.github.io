@@ -26,7 +26,7 @@ function parse_json(){
 }
 
 function initialize(position) {
-	console.log("new fix 3");
+	console.log("new fix 4");
 	var lat = position.coords.latitude;
 	var lon = position.coords.longitude;
 	var stationMarkers = [];
@@ -48,6 +48,7 @@ function initialize(position) {
 	});
 	for(var i = 0; i < 3; i++){
 		if(data[i]["line"]==line_color){
+			var index = i;
 			var j = 0;
 			while(data[i]["stations"][j] != null){
 				//console.log("latitude" + data[i]["stations"][j]["latitude"]);
@@ -60,9 +61,10 @@ function initialize(position) {
 				j++;
 			}
 			for(var m in stationMarkers) {
+				console.log(m);
 				stationMarkers[m].setMap(map);
 				google.maps.event.addListener(stationMarkers[m], 'click', function(){
-						infoWindow.setContent(data[i]["stations"][m]["station_name"]);
+						infoWindow.setContent(data[index]["stations"][m]["station_name"]);
 						infoWindow.open(map, stationMarkers[m]);
 				});
 			}
