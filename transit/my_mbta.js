@@ -57,8 +57,10 @@ function initialize(position) {
 				//calculate distance using Haversine formula
 				var lat1Rad = lat1.toRad();
 				var lat2Rad = data[i]["stations"][j]["latitude"].toRad();
-				var dLat = (data[i]["stations"][j]["latitude"] - lat1).toRad();
-				var dLon = (data[i]["stations"][j]["longitude"] - lon1).toRad();
+				var lat_diff = (data[i]["stations"][j]["latitude"] - lat1);
+				var lon_diff = (data[i]["stations"][j]["latitude"] - lat1);
+				var dLat = lat_diff.toRad();
+				var dLon = lon_diff.toRad();
 				var a = Math.sin(dLat/2)*Math.sin(dLat/2)+Math.sin(dLon/2)*Math.sin(dLon/2)*Math.cos(lat1Rad)*Math.cos(lat2Rad);
 				var c = 2*Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
 				var distance = R*c;
