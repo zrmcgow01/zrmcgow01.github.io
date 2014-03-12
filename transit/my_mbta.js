@@ -93,7 +93,7 @@ function initialize(position) {
 						strokeOpacity: 1.0,
 						strokeWeight: 2
 					});		
-					drawPAth.setMap(map);								
+					drawPath.setMap(map);								
 				}
 				prevLoc = stationLoc;
 				j++;
