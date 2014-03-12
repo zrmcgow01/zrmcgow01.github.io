@@ -55,7 +55,7 @@ function initialize(position) {
 				//console.log("latitude" + data[i]["stations"][j]["latitude"]);
 				//console.log("longitude" + data[i]["stations"][j]["longitude"]);
 				stationLoc = new google.maps.LatLng(data[i]["stations"][j]["latitude"],data[i]["stations"][j]["longitude"]);
-				stationMarkers.push(createMarker(stationLoc, data[i]["stations"][j]["station_name"]), map);
+				stationMarkers.push(createMarker(stationLoc, data[i]["stations"][j]["station_name"], map));
 				//stationMarkers.push(new google.maps.Marker({
 				//	position: stationLoc,
 				//	title: data[i]["stations"][j]["station_name"]
