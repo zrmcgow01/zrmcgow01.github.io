@@ -61,7 +61,7 @@ function initialize(position) {
 						stationLoc
 					];
 					if(line_color=='blue'){
-						var drawPath = new google.maps.Polyline({
+						drawPath = new google.maps.Polyline({
 							path: stationPath,
 							goedesic: true,
 							strokeColor: '#0000FF', //blue
@@ -70,7 +70,7 @@ function initialize(position) {
 						});
 					}
 					if(line_color=='green'){
-						var drawPath = new google.maps.Polyline({
+						drawPath = new google.maps.Polyline({
 							path: stationPath,
 							goedesic: true,
 							strokeColor: '#FFA500', //orange
