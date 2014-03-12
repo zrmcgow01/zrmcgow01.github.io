@@ -26,7 +26,7 @@ function parse_json(){
 }
 var stationMarkers = [];
 function initialize(position) {
-	console.log("back to original!");
+	console.log("back to original");
 	var lat = position.coords.latitude;
 	var lon = position.coords.longitude;
 
