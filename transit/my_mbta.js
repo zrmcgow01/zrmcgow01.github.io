@@ -57,7 +57,7 @@ function initialize(position) {
 				j++;
 			}
 			for(var m in stationMarkers) {
-				stationLoc = new google.maps.LatLng(data[i]["stations"][m]["latitude"],data[i]["stations"][j]["longitude"]);
+				stationLoc = new google.maps.LatLng(data[i]["stations"][m]["latitude"],data[i]["stations"][m]["longitude"]);
 				stationMarkers.push(new google.maps.Marker({
 					position: stationLoc,
 					title: data[i]["stations"][m]["station_name"]
