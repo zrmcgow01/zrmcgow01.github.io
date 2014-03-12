@@ -55,6 +55,32 @@ function initialize(position) {
 			while(data[i]["stations"][j] != null){
 				stationLoc = new google.maps.LatLng(data[i]["stations"][j]["latitude"],data[i]["stations"][j]["longitude"]);
 				stationMarkers.push(createMarker(stationLoc, data[i]["stations"][j]["station_name"], map));
+				if((line_color == 'blue' || line_color == 'orange') && j!=0){
+					var stationPath = [
+						prevLoc,
+						stationLoc
+					];
+					if(line_color=='blue'){
+						var drawPath = new google.maps.Polyline({
+							path: stationPath,
+							goedesic: true,
+							strokeColor: '#0000FF', //blue
+							strokeOpacity: 1.0,
+							strokeWeight: 2
+						});
+					}
+					if(line_color=='green'){
+						var drawPath = new google.maps.Polyline({
+							path: stationPath,
+							goedesic: true,
+							strokeColor: '#FFA500', //orange
+							strokeOpacity: 1.0,
+							strokeWeight: 2
+						});
+					}
+					drawPath.setMap(map);
+				}
+				prevLoc = stationLoc;
 				j++;
 			}
 		}
