@@ -68,6 +68,7 @@ function parse_json(){
 	var xhr = new XMLHttpRequest();
 	xhr.open("get", "http://mbtamap.herokuapp.com/mapper/rodeo.json", true);
 	xhr.onreadystatechange = function() {
+	console.log(xhr.status);
 	if(xhr.readyState==4 && xhr.status==200){
 		scheduleData = JSON.parse(xhr.responseText);
 		line_color = scheduleData["line"];
