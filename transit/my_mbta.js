@@ -85,16 +85,13 @@ function parse_json(){
 		if(navigator.geolocation){
 			navigator.geolocation.getCurrentPosition(initialize);
 		}
-	}
-	else{
-		alert("Geolocation is not supported by this browser.");
-	}
+		else{
+			alert("Geolocation is not supported by this browser.");
 		}
-		else if(xhr.readyState == 4 && xhr.status==500){
-			scheduleDom = document.getElementById("map-canvas");
-			scheduleDom.innerHTML = '<p>There was an error loading the schedule data.  Please try again.</p>';
-
-		}
+	}
+	else if(xhr.readyState == 4 && xhr.status==500){
+		scheduleDom = document.getElementById("map-canvas");
+		scheduleDom.innerHTML = '<p>There was an error loading the schedule data.  Please try again.</p>';
 	}
 	xhr.send(null);
 }
