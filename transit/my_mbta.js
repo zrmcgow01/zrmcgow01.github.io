@@ -60,10 +60,11 @@ function initialize(position) {
 				//	position: stationLoc,
 				//	title: data[i]["stations"][j]["station_name"]
 				//}));
+				console.log(stationMarkers[j]);
 				j++;
 			}
 			for(var m in stationMarkers) {
-				stationMarkers[m].setMap(map);
+				//stationMarkers[m].setMap(map);
 			//	console.log(data[i]["stations"][m]);
 
 				//infoWindow = new google.maps.InfoWindow();
