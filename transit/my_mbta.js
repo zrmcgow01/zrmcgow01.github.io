@@ -34,6 +34,7 @@ function parse_json() {
 						stationMarkers[m].setMap(map);
 						google.maps.event.addListener(stationMarkers[m], 'click', function(){
 								console.log("line index: "+index+ "station index: "+m+"station name: "+stationMarkers[m].title);
+								infoWindow = new google.maps.InfoWindow();
 								infoWindow.setContent(data[index]["stations"][m]["station_name"]);
 								infoWindow.open(map, stationMarkers[m]);
 						});
