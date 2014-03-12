@@ -26,6 +26,7 @@ function parse_json(){
 }
 
 var stationMarkers = [];
+var index;
 
 function initialize(position) {
 	console.log("here");
@@ -49,7 +50,7 @@ function initialize(position) {
 	});
 	for(var i = 0; i < 3; i++){
 		if(data[i]["line"]==line_color){
-			var index = i;
+			index = i;
 			var j = 0;
 			while(data[i]["stations"][j] != null){
 				stationLoc = new google.maps.LatLng(data[i]["stations"][j]["latitude"],data[i]["stations"][j]["longitude"], j);
