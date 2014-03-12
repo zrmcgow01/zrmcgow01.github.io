@@ -60,7 +60,7 @@ function initialize(position) {
 				//	position: stationLoc,
 				//	title: data[i]["stations"][j]["station_name"]
 				//}));
-				console.log(stationMarkers[j]);
+				//console.log(stationMarkers[j]);
 				j++;
 			}
 			for(var m in stationMarkers) {
@@ -79,7 +79,7 @@ function initialize(position) {
 }
 
 function createMarker(pos, title, map){
-
+console.log(pos + " " + title);
 	var marker = new google.maps.Marker({
 		position: pos,
 		map: map,
