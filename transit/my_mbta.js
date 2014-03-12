@@ -59,7 +59,7 @@ function initialize(position) {
 				});
 				stationMarker.setMap(map);
 				infoWindow = new google.maps.InfoWindow();
-				google.maps.event.addListener(myMarker, 'click', function(){
+				google.maps.event.addListener(stationMarker, 'click', function(){
 					infoWindow.setContent(stationMarker.title);
 					infoWindow.open(map, stationMarker);
 				});
