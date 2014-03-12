@@ -69,7 +69,7 @@ function initialize(position) {
 							strokeWeight: 2
 						});
 					}
-					if(line_color=='green'){
+					if(line_color=='orange'){
 						drawPath = new google.maps.Polyline({
 							path: stationPath,
 							goedesic: true,
