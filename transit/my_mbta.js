@@ -18,7 +18,7 @@ function parse_json() {
 			line_color = scheduleData["line"];
 			for(var i = 0; i < 3; i++){
 				if(data[i]["line"]==line_color){
-					//var index = i;
+					var index = i;
 					var j = 0;
 					while(data[i]["stations"][j] != null){
 						//console.log("latitude" + data[i]["stations"][j]["latitude"]);
@@ -33,8 +33,8 @@ function parse_json() {
 					for(var m in stationMarkers) {
 						stationMarkers[m].setMap(map);
 						google.maps.event.addListener(stationMarkers[m], 'click', function(){
-								//console.log("line index: "+index+ "station index: "+m+"station name: "+stationMarkers[m].title);
-								infoWindow.setContent(data[i]["stations"][m]["station_name"]);
+								console.log("line index: "+index+ "station index: "+m+"station name: "+stationMarkers[m].title);
+								infoWindow.setContent(data[index]["stations"][m]["station_name"]);
 								infoWindow.open(map, stationMarkers[m]);
 						});
 					}
