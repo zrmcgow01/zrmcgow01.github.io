@@ -32,7 +32,7 @@ function parse_json() {
 					}
 					for(var m in stationMarkers) {
 						stationMarkers[m].setMap(map);
-						google.maps.event.addListener(stationMarkers[m], 'click', function(){
+						google.maps.event.addListener(stationMarkers[m], 'click', function(m){
 								console.log("line index: "+index+ "station index: "+m+"station name: "+stationMarkers[m].title);
 								infoWindow = new google.maps.InfoWindow();
 								infoWindow.setContent(data[index]["stations"][m]["station_name"]);
