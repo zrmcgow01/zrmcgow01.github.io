@@ -58,7 +58,7 @@ function initialize(position) {
 					position: stationLoc,
 					title: data[i]["stations"][j]["station_name"]
 				}));
-				infoWindow = new google.mapsInfoWindow();
+				infoWindow = new google.maps.InfoWindow();
 				google.maps.event.addListener(stationMarkers[j], 'click', function(){
 					infoWindow.setContent(stationMarkers[j].title);
 					infoWindow.open(map, stationMarkers[j]);
