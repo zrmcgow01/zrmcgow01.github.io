@@ -62,7 +62,7 @@ function initialize(position) {
 }
 
 function createMarker(pos, title, map, station_num, index){
-    console.log(data[index]["stations"][station_num]);
+    console.log("index " + index + "station_num: "+station_num);
 	var marker = new google.maps.Marker({
 		position: pos,
 		title: title
