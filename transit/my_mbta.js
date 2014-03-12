@@ -29,6 +29,7 @@ function initialize(position) {
 	var lat = position.coords.latitude;
 	var lon = position.coords.longitude;
 	var stationLoc;
+	var stationMarker;
 	var myLoc = new google.maps.LatLng(lat, lon);
 	var mapOptions = {
 		center: myLoc,
@@ -49,9 +50,14 @@ function initialize(position) {
 		if(data[i]["line"]==line_color){
 			var j = 0;
 			while(data[i]["stations"][j] != null){
-				console.log("latitude" + data[i]["stations"][j]["latitude"]);
-				console.log("longitude" + data[i]["stations"][j]["longitude"]);
-				//stationLoc = new google.mapsLatLng(data[i]["stations"][j]["latitude"],data[i]["stations"][j]["longitude"]);
+				//console.log("latitude" + data[i]["stations"][j]["latitude"]);
+				//console.log("longitude" + data[i]["stations"][j]["longitude"]);
+				stationLoc = new google.mapsLatLng(data[i]["stations"][j]["latitude"],data[i]["stations"][j]["longitude"]);
+				stationMarker = new google.maps.Marker({
+					position: stationLoc,
+					title: data[i]["stations"][j]["station_name"]
+				});
+				stationMarker.setMap(map);
 				j++;
 			}
 		}
