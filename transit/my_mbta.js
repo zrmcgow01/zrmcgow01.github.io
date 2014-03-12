@@ -68,7 +68,6 @@ function parse_json(){
 	var xhr = new XMLHttpRequest();
 	xhr.open("get", "http://mbtamap.herokuapp.com/mapper/rodeo.json", true);
 	xhr.onreadystatechange = function() {
-		console.log(xhr.status);
 		if(xhr.readyState==4 && xhr.status==200){
 			scheduleData = JSON.parse(xhr.responseText);
 			line_color = scheduleData["line"];
@@ -90,11 +89,13 @@ function parse_json(){
 			}
 		}
 		else if(xhr.readyState == 4 && xhr.status==500){
-			scheduleDom = document.getElementById("map-canvas");
+			scheduleDom = document.getElementById("map_canvas");
 			scheduleDom.innerHTML = '<p>There was an error loading the schedule data.  Please try again.</p>';
+
 		}
-		xhr.send(null);
 	}
+	xhr.send(null);
+	
 }
 
 function initialize(position) {
