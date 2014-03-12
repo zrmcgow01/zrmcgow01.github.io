@@ -58,6 +58,11 @@ function initialize(position) {
 					title: data[i]["stations"][j]["station_name"]
 				});
 				stationMarker.setMap(map);
+				infoWindow = new google.maps.InfoWindow();
+				google.maps.event.addListener(myMarker, 'click', function(){
+					infoWindow.setContent(stationMarker.title);
+					infoWindow.open(map, stationMarker);
+				});
 				j++;
 			}
 		}
