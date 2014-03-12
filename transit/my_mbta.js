@@ -68,32 +68,33 @@ function parse_json(){
 	var xhr = new XMLHttpRequest();
 	xhr.open("get", "http://mbtamap.herokuapp.com/mapper/rodeo.json", true);
 	xhr.onreadystatechange = function() {
-	console.log(xhr.status);
-	if(xhr.readyState==4 && xhr.status==200){
-		scheduleData = JSON.parse(xhr.responseText);
-		line_color = scheduleData["line"];
-		console.log(line_color);
-		for(var i = 0; i < 3; i++){
-			if(data[i]["line"]==line_color){
-				var j = 0;
-				while(data[i]["stations"][j] != null){
-					console.log(data[i]["stations"][j]);
-					j++;
+		console.log(xhr.status);
+		if(xhr.readyState==4 && xhr.status==200){
+			scheduleData = JSON.parse(xhr.responseText);
+			line_color = scheduleData["line"];
+			console.log(line_color);
+			for(var i = 0; i < 3; i++){
+				if(data[i]["line"]==line_color){
+					var j = 0;
+					while(data[i]["stations"][j] != null){
+						console.log(data[i]["stations"][j]);
+						j++;
+					}
 				}
 			}
+			if(navigator.geolocation){
+				navigator.geolocation.getCurrentPosition(initialize);
+			}
+			else{
+				alert("Geolocation is not supported by this browser.");
+			}
 		}
-		if(navigator.geolocation){
-			navigator.geolocation.getCurrentPosition(initialize);
+		else if(xhr.readyState == 4 && xhr.status==500){
+			scheduleDom = document.getElementById("map-canvas");
+			scheduleDom.innerHTML = '<p>There was an error loading the schedule data.  Please try again.</p>';
 		}
-		else{
-			alert("Geolocation is not supported by this browser.");
-		}
+		xhr.send(null);
 	}
-	else if(xhr.readyState == 4 && xhr.status==500){
-		scheduleDom = document.getElementById("map-canvas");
-		scheduleDom.innerHTML = '<p>There was an error loading the schedule data.  Please try again.</p>';
-	}
-	xhr.send(null);
 }
 
 function initialize(position) {
