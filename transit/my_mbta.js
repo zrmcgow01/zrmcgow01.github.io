@@ -26,7 +26,7 @@ function parse_json(){
 }
 
 function initialize(position) {
-	console.log("new fix");
+	console.log("new fix 2");
 	var lat = position.coords.latitude;
 	var lon = position.coords.longitude;
 	var stationMarkers = [];
@@ -42,7 +42,7 @@ function initialize(position) {
 		title: "You are here!"
 	});
 	myMarker.setMap(map);
-	var infoWindow = new google.maps.InfoWindow();
+	infoWindow = new google.maps.InfoWindow();
 	google.maps.event.addListener(myMarker, 'click', function(){
 				infoWindow.setContent(myMarker.title);
 				infoWindow.open(map, myMarker);
