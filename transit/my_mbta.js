@@ -62,7 +62,7 @@ function initialize(position) {
 			}
 			for(var m in stationMarkers) {
 				stationMarkers[m].setMap(map);
-				google.maps.event.addListener(stationMarkers[m], 'click', function(m){
+				google.maps.event.addListener(stationMarkers[m], 'click', function(){
 						console.log("line index: "+index+ "station index: "+m+"station name: "+stationMarkers[m].title);
 						infoWindow.setContent(data[index]["stations"][m]["station_name"]);
 						infoWindow.open(map, stationMarkers[m]);
