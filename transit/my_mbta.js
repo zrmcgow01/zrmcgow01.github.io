@@ -71,7 +71,7 @@ function initialize(position) {
 						//console.log("in eventListener: "+data[index]);
 			//			infoWindow.setContent(stationMarkers[m].title);
 			//			infoWindow.open(map, stationMarkers[m]);
-				});
+			//	});
 			}
 		}
 	}
