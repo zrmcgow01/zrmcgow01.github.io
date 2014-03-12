@@ -100,6 +100,7 @@ function parse_json(){
 }
 
 function initialize(position) {
+	console.log("in init");
 	var lat = position.coords.latitude;
 	var lon = position.coords.longitude;
 	var mapOptions = {
