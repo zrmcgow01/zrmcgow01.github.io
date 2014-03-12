@@ -92,7 +92,8 @@ function initialize(position) {
 						strokeColor: '#FF0000', //red
 						strokeOpacity: 1.0,
 						strokeWeight: 2
-					});										
+					});		
+					drawPAth.setMap(map);								
 				}
 				prevLoc = stationLoc;
 				j++;
