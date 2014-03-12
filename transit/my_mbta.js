@@ -31,7 +31,10 @@ var stationMarkers = [];
 var index;
 
 function initialize(position) {
-
+	//extend the number prototype for the haversine formula
+	Number.prototype.toRad = function() {
+   		return this * Math.PI / 180;
+	}
 	var lat1 = position.coords.latitude;
 	var lon1 = position.coords.longitude;
 
