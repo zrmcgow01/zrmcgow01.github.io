@@ -58,16 +58,12 @@ function initialize(position) {
 					position: stationLoc,
 					title: data[i]["stations"][j]["station_name"]
 				}));
-				infoWindow = new google.maps.InfoWindow();
-				google.maps.event.addListener(stationMarkers[j], 'click', function(){
-					infoWindow.setContent(stationMarkers[j].title);
-					infoWindow.open(map, stationMarkers[j]);
-				})
 				j++;
 			}
 			for(var m in stationMarkers) {
 				stationMarkers[m].setMap(map);
 				console.log(stationMarkers[m]);
+				infoWindow = new google.maps.InfoWindow();
 				google.maps.event.addListener(stationMarkers[m], 'click', function(){
 						console.log("in eventListener: "+stationMarkers[m]);
 						infoWindow.setContent(data[index]["stations"][m]["station_name"]);
