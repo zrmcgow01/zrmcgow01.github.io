@@ -51,8 +51,8 @@ function initialize(position) {
 	myMarker.setMap(map);
 	var infoWindow = new google.maps.InfoWindow();
 	google.maps.event.addListener(myMarker, 'click', function(){
-				infoWindow.setContent(marker.title);
-				infoWindow.open(map, marker);
+				infoWindow.setContent(myMarker.title);
+				infoWindow.open(map, myMarker);
 	})
 }
 
