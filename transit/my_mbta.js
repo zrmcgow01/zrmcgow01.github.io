@@ -59,7 +59,7 @@ function initialize(position) {
 				var lat2 = data[i]["stations"][j]["latitude"];
 				var lat2Rad = toRad(lat2);
 				var lat_diff = (data[i]["stations"][j]["latitude"] - lat1);
-				var lon_diff = (data[i]["stations"][j]["latitude"] - lat1);
+				var lon_diff = (data[i]["stations"][j]["longitude"] - lat1);
 				var dLat = toRad(lat_diff);
 				var dLon = toRad(lon_diff);
 				var a = Math.sin(dLat/2)*Math.sin(dLat/2)+Math.sin(dLon/2)*Math.sin(dLon/2)*Math.cos(lat1Rad)*Math.cos(lat2Rad);
