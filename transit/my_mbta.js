@@ -55,24 +55,38 @@ function initialize(position) {
 				//console.log("latitude" + data[i]["stations"][j]["latitude"]);
 				//console.log("longitude" + data[i]["stations"][j]["longitude"]);
 				stationLoc = new google.maps.LatLng(data[i]["stations"][j]["latitude"],data[i]["stations"][j]["longitude"]);
-				stationMarkers.push(new google.maps.Marker({
-					position: stationLoc,
-					title: data[i]["stations"][j]["station_name"]
-				}));
+				stationMarkers.push(createMarker(stationLoc, data[i]["stations"][j]["station_name"]));
+				//stationMarkers.push(new google.maps.Marker({
+				//	position: stationLoc,
+				//	title: data[i]["stations"][j]["station_name"]
+				//}));
 				j++;
 			}
 			for(var m in stationMarkers) {
 				stationMarkers[m].setMap(map);
-				console.log(data[i]["stations"][m]);
+			//	console.log(data[i]["stations"][m]);
+
 				//infoWindow = new google.maps.InfoWindow();
-				google.maps.event.addListener(stationMarkers[m], 'click', function(){
+			//	google.maps.event.addListener(stationMarkers[m], 'click', function(){
 						//console.log("in eventListener: "+data[index]);
-						infoWindow.setContent(stationMarkers[m].title);
-						infoWindow.open(map, stationMarkers[m]);
+			//			infoWindow.setContent(stationMarkers[m].title);
+			//			infoWindow.open(map, stationMarkers[m]);
 				});
 			}
-
 		}
 	}
 }
 
+function createMarker(pos, title){
+
+	var marker = new google.maps.Marker({
+		position: pos,
+		map: map,
+		title: title
+	});
+	google.maps.event.addListener(marker, 'click', function(){
+		infoWindow.setContent(title);
+		infoWindow.open(map, marker);
+	});
+	return marker;		
+}
