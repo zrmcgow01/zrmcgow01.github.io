@@ -81,11 +81,24 @@ function initialize(position) {
 					}
 					drawPath.setMap(map);
 				}
+				if(data[i]["stations"][j]["station_name"]=='JFK/UMass'){
+					jfkumassloc = stationLoc;
+				}
+
+				}
 				if(line_color == 'red' && j!=0){
-					var stationPath = [
-						prevLoc,
-						stationLoc
-					];
+					if(data[i]["stations"][j]["station_name"]=='Savin Hill'){
+						var stationPath = [
+							jfkumassloc,
+							stationLoc
+						];
+					}
+					else{
+						var stationPath = [
+							prevLoc,
+							stationLoc
+						];
+					}
 					drawPath = new google.maps.Polyline({
 						path: stationPath,
 						goedesic: true,
