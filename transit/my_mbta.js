@@ -61,8 +61,8 @@ function initialize(position) {
 			for(var m in stationMarkers) {
 				stationMarkers[m].setMap(map);
 				var statinfoWindow = new google.maps.InfoWindow();
+				statinfoWindow.setContent(stationMarkers[m].title);
 				google.maps.event.addListener(stationMarkers[m], 'click', function(){
-					statinfoWindow.setContent(stationMarkers[m].title);
 					statinfoWindow.open(map, stationMarkers[m]);
 				});
 			}
