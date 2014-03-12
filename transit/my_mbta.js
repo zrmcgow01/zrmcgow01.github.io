@@ -141,7 +141,7 @@ function initialize(position) {
 }
 
 function createMarker(pos, title, map){
-	custom_icon = "t_logo.gif";
+	custom_icon = "t_logo.jpg";
 	var marker = new google.maps.Marker({
 		position: pos,
 		title: title,
