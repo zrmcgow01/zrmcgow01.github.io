@@ -58,7 +58,7 @@ function parse_json() {
 }
 
 function initialize(position) {
-	console.log("new fix 8");
+	console.log("new fix 9");
 	var lat = position.coords.latitude;
 	var lon = position.coords.longitude;
 
