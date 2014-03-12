@@ -26,7 +26,7 @@ function parse_json(){
 }
 
 function initialize(position) {
-	console.log("back to original!");
+	console.log("one last try");
 	var lat = position.coords.latitude;
 	var lon = position.coords.longitude;
 	var stationMarkers = [];
@@ -58,15 +58,21 @@ function initialize(position) {
 					position: stationLoc,
 					title: data[i]["stations"][j]["station_name"]
 				}));
+				stationMarkers[j].setMap(map);
+				infoWindow = new google.mapsInfoWindow();
+				google.maps.event.addListener(stationMarkers[j], 'click', function(){
+					infoWindow.setContent(stationMarkers[j].title);
+					infoWindow.open(map, stationMarkers[j]);
+				})
 				j++;
 			}
-			for(var m in stationMarkers) {
-				stationMarkers[m].setMap(map);
-				google.maps.event.addListener(stationMarkers[m], 'click', function(){
-						infoWindow.setContent(data[index]["stations"][m]["station_name"]);
-						infoWindow.open(map, stationMarkers[m]);
-				});
-			}
+			//for(var m in stationMarkers) {
+			//	stationMarkers[m].setMap(map);
+			//	google.maps.event.addListener(stationMarkers[m], 'click', function(){
+			//			infoWindow.setContent(data[index]["stations"][m]["station_name"]);
+			//			infoWindow.open(map, stationMarkers[m]);
+			//	});
+			//}
 
 		}
 	}
