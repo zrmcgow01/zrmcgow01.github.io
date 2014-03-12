@@ -8,16 +8,6 @@ function parse_json(){
 		if(xhr.readyState==4 && xhr.status==200){
 			scheduleData = JSON.parse(xhr.responseText);
 			line_color = scheduleData["line"];
-			console.log(line_color);
-			for(var i = 0; i < 3; i++){
-				if(data[i]["line"]==line_color){
-					var j = 0;
-					while(data[i]["stations"][j] != null){
-						console.log(data[i]["stations"][j]);
-						j++;
-					}
-				}
-			}
 			if(navigator.geolocation){
 				navigator.geolocation.getCurrentPosition(initialize);
 			}
@@ -36,9 +26,9 @@ function parse_json(){
 }
 
 function initialize(position) {
-	console.log(data[0]["line"]);
 	var lat = position.coords.latitude;
 	var lon = position.coords.longitude;
+	var stationLoc;
 	var myLoc = new google.maps.LatLng(lat, lon);
 	var mapOptions = {
 		center: myLoc,
@@ -54,6 +44,17 @@ function initialize(position) {
 	google.maps.event.addListener(myMarker, 'click', function(){
 				infoWindow.setContent(myMarker.title);
 				infoWindow.open(map, myMarker);
-	})
+	});
+	for(var i = 0; i < 3; i++){
+		if(data[i]["line"]==line_color){
+			var j = 0;
+			while(data[i]["stations"][j] != null){
+				console.log("latitude" + data[i]["stations"][j]["latitude"]);
+				console.log("longitude" + data[i]["stations"][j]["longitude"]);
+				//stationLoc = new google.mapsLatLng(data[i]["stations"][j]["latitude"],data[i]["stations"][j]["longitude"]);
+				j++;
+			}
+		}
+	}
 }
 
