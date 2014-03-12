@@ -135,6 +135,7 @@ function initialize(position) {
 				prevLoc = stationLoc;
 				j++;
 			}
+			console.log(shortest + " " + closestStation);
 		}
 	}
 }
