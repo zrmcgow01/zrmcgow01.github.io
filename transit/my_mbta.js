@@ -30,7 +30,8 @@ function parse_json() {
 						}));
 						j++;
 					}
-					for(var m in stationMarkers) {
+		
+					for(var m = 0; data[i]["stations"][m]!=null; m++) {
 						stationMarkers[m].setMap(map);
 						google.maps.event.addListener(stationMarkers[m], 'click', function(m){
 								console.log("line index: "+index+ "station index: "+m);
@@ -59,7 +60,7 @@ function parse_json() {
 }
 
 function initialize(position) {
-	console.log("new fix 9");
+	console.log("new fix 10");
 	var lat = position.coords.latitude;
 	var lon = position.coords.longitude;
 
