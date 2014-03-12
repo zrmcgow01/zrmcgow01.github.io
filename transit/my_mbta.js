@@ -10,7 +10,7 @@ function parse_json(){
 		if(xhr.readyState==4 && xhr.status==200){
 			scheduleData = JSON.parse(xhr.responseText);
 			line_color = scheduleData["line"];
-				console.log(line_color+"hi");
+				console.log(line_color+"now?");
 			if(navigator.geolocation){
 				navigator.geolocation.getCurrentPosition(initialize);
 			}
@@ -31,10 +31,7 @@ var stationMarkers = [];
 var index;
 
 function initialize(position) {
-	//extend the number prototype for the haversine formula
-	Number.prototype.toRad = function() {
-   		return this * Math.PI / 180;
-	}
+
 	var lat1 = position.coords.latitude;
 	var lon1 = position.coords.longitude;
 
@@ -58,12 +55,13 @@ function initialize(position) {
 			var j = 0;
 			while(data[i]["stations"][j] != null){
 				//calculate distance using Haversine formula
-				var lat1Rad = lat1.toRad();
-				var lat2Rad = data[i]["stations"][j]["latitude"].toRad();
+				var lat1Rad = toRad(lat1);
+				var lat2 = data[i]["stations"][j]["latitude"];
+				var lat2Rad = toRad(lat2);
 				var lat_diff = (data[i]["stations"][j]["latitude"] - lat1);
 				var lon_diff = (data[i]["stations"][j]["latitude"] - lat1);
-				var dLat = lat_diff.toRad();
-				var dLon = lon_diff.toRad();
+				var dLat = toRad(lat_diff);
+				var dLon = toRad(lon_diff);
 				var a = Math.sin(dLat/2)*Math.sin(dLat/2)+Math.sin(dLon/2)*Math.sin(dLon/2)*Math.cos(lat1Rad)*Math.cos(lat2Rad);
 				var c = 2*Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
 				var distance = R*c;
@@ -152,4 +150,8 @@ function createMarker(pos, title, map){
 	});
 	marker.setMap(map);
 	return marker;		
+}
+
+function toRad(x){
+	return (x * Math.PI / 180);
 }
