@@ -144,7 +144,7 @@ function createMarker(pos, title, map){
 	custom_icon = "t_logo.gif";
 	var marker = new google.maps.Marker({
 		position: pos,
-		title: title
+		title: title,
 		icon: custom_icon
 	});
 	google.maps.event.addListener(marker, 'click', function(){
