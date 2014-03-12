@@ -62,7 +62,7 @@ function initialize(position) {
 			}
 			for(var m in stationMarkers) {
 				stationMarkers[m].setMap(map);
-				console.log(stationMarkers[m]);
+				console.log(data[i]["stations"][m]);
 				infoWindow = new google.maps.InfoWindow();
 				google.maps.event.addListener(stationMarkers[m], 'click', function(){
 						console.log("in eventListener: "+stationMarkers);
