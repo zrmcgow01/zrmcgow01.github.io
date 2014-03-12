@@ -65,7 +65,7 @@ function initialize(position) {
 				console.log(stationMarkers[m]);
 				infoWindow = new google.maps.InfoWindow();
 				google.maps.event.addListener(stationMarkers[m], 'click', function(){
-						console.log("in eventListener: "+stationMarkers[m]);
+						console.log("in eventListener: "+stationMarkers);
 						infoWindow.setContent(data[index]["stations"][m]["station_name"]);
 						infoWindow.open(map, stationMarkers[m]);
 				});
