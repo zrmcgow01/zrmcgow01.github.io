@@ -30,6 +30,7 @@ function initialize(position) {
 	var lat = position.coords.latitude;
 	var lon = position.coords.longitude;
 	var stationMarkers = [];
+	var stationMark;
 	var myLoc = new google.maps.LatLng(lat, lon);
 	var mapOptions = {
 		center: myLoc,
@@ -54,17 +55,18 @@ function initialize(position) {
 				//console.log("latitude" + data[i]["stations"][j]["latitude"]);
 				//console.log("longitude" + data[i]["stations"][j]["longitude"]);
 				stationLoc = new google.maps.LatLng(data[i]["stations"][j]["latitude"],data[i]["stations"][j]["longitude"]);
-				stationMarkers.push(new google.maps.Marker({
+				stationMark = new google.maps.MArker({
 					position: stationLoc,
-					title: data[i]["stations"][j]["station_name"]
-				}));
+					title: data[i]["stations"][j]["station_name"]					
+				});
+				stationMarkers.push(stationMark);
 				stationMarkers[j].setMap(map);
 				infoWindow = new google.maps.InfoWindow();
 				
-				google.maps.event.addListener(stationMarkers[j], 'click', function(stationMarkers){
-					console.log(stationMarkers[j]);
-					infoWindow.setContent(stationMarkers[j]);
-					infoWindow.open(map, stationMarkers[j]);
+				google.maps.event.addListener(stationMark, 'click', function(){
+					console.log(stationMark);
+					infoWindow.setContent(stationMarke.title);
+					infoWindow.open(map, stationMark);
 				})
 				j++;
 			}
