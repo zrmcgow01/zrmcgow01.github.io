@@ -53,19 +53,20 @@ function initialize(position) {
 			while(data[i]["stations"][j] != null){
 				//console.log("latitude" + data[i]["stations"][j]["latitude"]);
 				//console.log("longitude" + data[i]["stations"][j]["longitude"]);
-				stationLoc = new google.maps.LatLng(data[i]["stations"][j]["latitude"],data[i]["stations"][j]["longitude"]);
-				stationMarkers.push(new google.maps.Marker({
-					position: stationLoc,
-					title: data[i]["stations"][j]["station_name"]
-				}));
+
 				j++;
 			}
 			for(var m in stationMarkers) {
+				stationLoc = new google.maps.LatLng(data[i]["stations"][m]["latitude"],data[i]["stations"][j]["longitude"]);
+				stationMarkers.push(new google.maps.Marker({
+					position: stationLoc,
+					title: data[i]["stations"][m]["station_name"]
+				}));
 				stationMarkers[m].setMap(map);
 				console.log(stationMarkers[m]);
 				infoWindow = new google.maps.InfoWindow();
 				google.maps.event.addListener(stationMarkers[m], 'click', function(){
-						console.log("in eventListener: "+stationMarkers);
+						console.log("in eventListener: "+stationMarkers[m]);
 						infoWindow.setContent(data[index]["stations"][m]["station_name"]);
 						infoWindow.open(map, stationMarkers[m]);
 				});
