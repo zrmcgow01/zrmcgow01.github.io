@@ -74,8 +74,8 @@ function initialize(position) {
 					var closestStation = data[i]["stations"][j]["station_name"];
 				}
 				if(j==0){
-					station_info = "<h1>" + data[i]["stations"][j]["station_name"] + "</strong>";
-					station_info += '<table id="schedule"><tr><th>Line</th><th>Trip #</th><th>Direction</th><th>Time Remaining</th></tr>';
+					station_info = "<h1>" + data[i]["stations"][j]["station_name"] + "</h1>";
+					station_info += '<table id="schedule"><tr><th>Line</th><th>Trip #</th><th>Direction</th><th>Time Remaining</th></tr></table>';
 					//station_info = parse_API_data(scheduleData);
 					//console.log(station_info);
 				}
