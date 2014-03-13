@@ -145,6 +145,7 @@ function initialize(position) {
 
 function parse_API_data(scheduleData, stationName){
 	var i = 0;
+	var stops;
 	for(var w in scheduleData["schedule"]){
 		for(var p in scheduleData["schedule"][w]["Predictions"]){
 			if(scheduleData["schedule"][w]["Predictions"][p]["Stop"] == stationName){
