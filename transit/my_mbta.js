@@ -146,8 +146,8 @@ function initialize(position) {
 
 function parse_API_data(scheduleData){
 	for(var w in scheduleData["schedule"]){
-		for(var p in scheduleData["schedule"][w]){
-			console.log(scheduleData["schedule"][w]["Destination"]);
+		for(var p in scheduleData["schedule"][w]["Predictions"]){
+			console.log(scheduleData["schedule"][w]["Predictions"][p]);
 		}
 	}
 	return scheduleData["line"];
