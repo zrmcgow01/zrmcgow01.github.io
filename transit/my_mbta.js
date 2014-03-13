@@ -47,9 +47,13 @@ function initialize(position) {
 		title: "You are here!"
 	});
 	myMarker.setMap(map);
-
+	google.maps.event.addListener(myMarker, 'click', function(){
+		infoWindow.setContent("<h1>You are here!</h1><p>The closest station to you is: <strong>"+closestStation+"</strong></p><p>Distance to station: <strong>"+shortest+"</strong> miles</p>");
+		infoWindow.open(map, myMarker);
+	});
 	for(var i = 0; i < 3; i++){
 		if(data[i]["line"]==line_color){
+			console.log(line_color);
 			index = i;
 			var j = 0;
 			while(data[i]["stations"][j] != null){
@@ -176,10 +180,6 @@ function initialize(position) {
 			}
 			infoWindow.setContent("<h1>You are here!</h1><p>The closest station to you is: <strong>"+closestStation+"</strong></p><p>Distance to station: <strong>"+shortest+"</strong> miles</p>");
 			infoWindow.open(map, myMarker); //this displays the message on your location always
-			google.maps.event.addListener(myMarker, 'click', function(){
-				infoWindow.setContent("<h1>You are here!</h1><p>The closest station to you is: <strong>"+closestStation+"</strong></p><p>Distance to station: <strong>"+shortest+"</strong> miles</p>");
-				infoWindow.open(map, myMarker);
-			});
 		}
 	}
 }
