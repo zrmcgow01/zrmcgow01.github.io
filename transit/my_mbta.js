@@ -32,7 +32,7 @@ var index;
 
 function initialize(position) {
 
-	scheduleData = JSON.parse(xhr.responseText);
+	var scheduleData = JSON.parse(xhr.responseText);
 	line_color = scheduleData["line"];
 	console.log(line_color);
 
