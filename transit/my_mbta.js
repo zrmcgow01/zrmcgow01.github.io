@@ -75,7 +75,8 @@ function initialize(position) {
 				}
 				if(j==0){
 					station_info = "<strong>" + data[i]["stations"][j]["station_name"] + "</strong>";
-					station_info += '<table id="schedule"><tr><th>Line</th><th>Trip #</th><th>Direction</th><th>Time Remaining</th></tr></table>';
+					station_info += '<table id="schedule"><tr><th>Line</th><th>Trip #</th><th>Direction</th><th>Time Remaining</th></tr>';
+					station_info += '<tr><td>1</td><td>2</td><td>3</td><td>4</td></tr></table>';
 					//station_info = parse_API_data(scheduleData);
 					//console.log(station_info);
 				}
