@@ -73,12 +73,8 @@ function initialize(position) {
 					shortest = distance;
 					var closestStation = data[i]["stations"][j]["station_name"];
 				}
-				if(j==0){
 					station_info = "<strong>" + data[i]["stations"][j]["station_name"] + "</strong>";
-					station_info += '<table id="schedule"><tr><th>Line</th><th>Trip #</th><th>Direction</th><th>Time Remaining</th></tr>';
-					station_info += '<tr><td>1</td><td>2</td><td>3</td><td>4</td></tr></table>';
-					//station_info = parse_API_data(scheduleData);
-					//console.log(station_info);
+					station_info += parse_API_data(scheduleData);
 				}
 				//create marker for each station in specified line
 				stationLoc = new google.maps.LatLng(data[i]["stations"][j]["latitude"],data[i]["stations"][j]["longitude"]);
@@ -150,6 +146,9 @@ function initialize(position) {
 function parse_API_data(scheduleData){
 	for(var w in scheduleData["schedule"]){
 		for(var p in scheduleData["schedule"][w]["Predictions"]){
+			//if(scheduleData["schedule"][w]["Predictions"][p])
+	     	//station_info += '<table id="schedule"><tr><th>Line</th><th>Trip #</th><th>Direction</th><th>Time Remaining</th></tr>';
+			//station_info += '<tr><td>'</td><td>2</td><td>3</td><td>4</td></tr></table>';
 			console.log(scheduleData["schedule"][w]["Predictions"][p]);
 		}
 	}
