@@ -75,7 +75,7 @@ function initialize(position) {
 				}
 				//create marker for each station in specified line
 				stationLoc = new google.maps.LatLng(data[i]["stations"][j]["latitude"],data[i]["stations"][j]["longitude"]);
-				stationMarkers.push(createMarker(stationLoc, data[i]["stations"][j]["station_name"], map));
+				stationMarkers.push(createMarker(stationLoc, data[i]["stations"][j]["station_name"], map, scheduleData));
 				//color polylines connecting stations for blue and orange lines
 				if((line_color == 'blue' || line_color == 'orange') && j!=0){
 					var stationPath = [
@@ -140,7 +140,7 @@ function initialize(position) {
 	}
 }
 
-function createMarker(pos, title, map){
+function createMarker(pos, title, map, scheduleData){
 	custom_icon = "t_logo.jpg";
 	var marker = new google.maps.Marker({
 		position: pos,
