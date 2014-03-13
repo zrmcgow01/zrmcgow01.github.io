@@ -87,7 +87,7 @@ function initialize(position) {
 	     							station_info += '<table id="schedule"><tr><th>Line</th><th>Trip #</th><th>Direction</th><th>Time Remaining</th></tr>';
 	     							g++;
 	     						}
-	     						if(scheduleData["schedule"][w]["Predictions"][p]["Seconds"] > 0){
+	     						if(scheduleData["schedule"][w]["Predictions"][p]["Seconds"] >= 0){
 	     							var minutes = Math.floor(scheduleData["schedule"][w]["Predictions"][p]["Seconds"]/60);
 	     								if(minutes < 10){
 	     									minutes = "0" + minutes;
@@ -176,6 +176,10 @@ function initialize(position) {
 			}
 			infoWindow.setContent("<h1>You are here!</h1><p>The closest station to you is: <strong>"+closestStation+"</strong></p><p>Distance to station: <strong>"+shortest+"</strong> miles</p>");
 			infoWindow.open(map, myMarker); //this displays the message on your location always
+			google.maps.event.addListener(myMarker, 'click', function(){
+				infoWindow.setContent("<h1>You are here!</h1><p>The closest station to you is: <strong>"+closestStation+"</strong></p><p>Distance to station: <strong>"+shortest+"</strong> miles</p>");
+				infoWindow.open(map, myMarker);
+			});
 		}
 	}
 }
