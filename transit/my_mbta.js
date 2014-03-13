@@ -74,6 +74,11 @@ function initialize(position) {
 					var closestStation = data[i]["stations"][j]["station_name"];
 				}
 				//create marker for each station in specified line
+				for(var w in scheduleData["schedule"]){
+					for(var p in scheduleData["schedule"][w]["Predictions"]){
+						console.log(scheduleData["schedule"][w]["Predictions"]);
+					}
+				}
 				stationLoc = new google.maps.LatLng(data[i]["stations"][j]["latitude"],data[i]["stations"][j]["longitude"]);
 				stationMarkers.push(createMarker(stationLoc, data[i]["stations"][j]["station_name"], map, scheduleData));
 				//color polylines connecting stations for blue and orange lines
@@ -147,11 +152,7 @@ function createMarker(pos, title, map, scheduleData){
 		title: title,
 		icon: custom_icon
 	});
-	for(var w in scheduleData["schedule"]){
-		for(var p in scheduleData["schedule"][w]["Predictions"]){
-			console.log(scheduleData["schedule"][w]["Predictions"]);
-		}
-	}
+
 	google.maps.event.addListener(marker, 'click', function(){
 		content = "<strong>" + title + "</strong>";
 		infoWindow.setContent(content);
