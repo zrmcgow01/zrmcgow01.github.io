@@ -80,7 +80,7 @@ function initialize(position) {
 				if(j==0){
 				for(var w in scheduleData["schedule"]){
 					for(var p in scheduleData["schedule"][w]["Predictions"]){
-						console.log(scheduleData["schedule"][w]["Predictions"]);
+						console.log(scheduleData["schedule"]);
 					}
 				}
 				}
