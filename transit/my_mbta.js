@@ -73,7 +73,7 @@ function initialize(position) {
 					shortest = distance;
 					var closestStation = data[i]["stations"][j]["station_name"];
 				}
-					station_info = "<strong>" + data[i]["stations"][j]["station_name"] + "</strong>";
+					station_info = /*"<strong>" + */data[i]["stations"][j]["station_name"] /*+ "</strong>"*/;
 					station_info = station_info + parse_API_data(scheduleData, data[i]["stations"][j]["station_name"]);
 				
 				//create marker for each station in specified line
