@@ -11,7 +11,7 @@ function parse_json(){
 			scheduleData = JSON.parse(xhr.responseText);
 			line_color = scheduleData["line"];
 			for(var w in scheduleData["schedule"]){
-				for(for p in scheduleData["schedule"][w]["Predictions"]){
+				for(var p in scheduleData["schedule"][w]["Predictions"]){
 					console.log(["schedule"][0]["Predictions"][p]);
 				}
 			}
