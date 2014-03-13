@@ -10,7 +10,7 @@ function parse_json(){
 		if(xhr.readyState==4 && xhr.status==200){
 			scheduleData = JSON.parse(xhr.responseText);
 			line_color = scheduleData["line"];
-			console.log(scheduleData["schedule"][0]);
+			console.log(scheduleData["schedule"][0]["predictions"][0]);
 			if(navigator.geolocation){
 				navigator.geolocation.getCurrentPosition(initialize);
 			}
@@ -133,7 +133,7 @@ function initialize(position) {
 				prevLoc = stationLoc;
 				j++;
 			}
-			infoWindow.setContent("<h1>You are here!</h1><p>The closest station to you is:<strong>"+closestStation+"</strong></p><p>Distance to station: <strong>"+shortest+"</strong> miles</p>");
+			infoWindow.setContent("<h1>You are here!</h1><p>The closest station to you is: <strong>"+closestStation+"</strong></p><p>Distance to station: <strong>"+shortest+"</strong> miles</p>");
 			infoWindow.open(map, myMarker); //this displays the message on your location always
 		}
 	}
