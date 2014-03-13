@@ -75,7 +75,7 @@ function initialize(position) {
 				}
 					station_info = "<strong>" + data[i]["stations"][j]["station_name"] + "</strong>";
 					station_info += parse_API_data(scheduleData);
-				}
+				
 				//create marker for each station in specified line
 				stationLoc = new google.maps.LatLng(data[i]["stations"][j]["latitude"],data[i]["stations"][j]["longitude"]);
 				stationMarkers.push(createMarker(stationLoc, data[i]["stations"][j]["station_name"], map, station_info));
