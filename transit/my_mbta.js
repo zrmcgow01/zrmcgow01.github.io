@@ -88,7 +88,16 @@ function initialize(position) {
 	     							g++;
 	     						}
 	     						if(scheduleData["schedule"][w]["Predictions"][p]["Seconds"] > 0){
-	     							var updatedTime = "00:" + Math.floor(scheduleData["schedule"][w]["Predictions"][p]["Seconds"]/60) + ":" + scheduleData["schedule"][w]["Predictions"][p]["Seconds"]%60;
+	     							var minutes = Math.floor(scheduleData["schedule"][w]["Predictions"][p]["Seconds"]/60);
+	     								if(minutes < 10){
+	     									minutes = "0" + minutes;
+	     								}
+	     							var seconds = scheduleData["schedule"][w]["Predictions"][p]["Seconds"]%60;
+	      								if(seconds < 10){
+	     									seconds = "0" + seconds;
+	     								}    									
+
+	     							var updatedTime = "00:" + minutes + ":" + seconds;
 	     						}
 	     						else{
 	     							var updatedTime = scheduleData["schedule"][w]["Predictions"][p]["Seconds"];
