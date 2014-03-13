@@ -14,3 +14,11 @@ body {
 	height: 100%;
 	width:  100%;	
 }
+
+#schedule{
+	border-color: black;
+	border-width: 1px;
+	border-style: solid;
+	border-collapse: collapse;
+	width: 100%;
+}
