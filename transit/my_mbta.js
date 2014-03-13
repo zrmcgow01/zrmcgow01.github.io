@@ -87,7 +87,13 @@ function initialize(position) {
 	     							station_info += '<table id="schedule"><tr><th>Line</th><th>Trip #</th><th>Direction</th><th>Time Remaining</th></tr>';
 	     							g++;
 	     						}
-								station_info += '<tr><td>' + scheduleData["line"] + '</td><td>' + scheduleData["schedule"][w]["TripID"] + '</td><td>' + scheduleData["schedule"][w]["Destination"] + '</td><td>' + scheduleData["schedule"][w]["Predictions"][p]["Seconds"] + '</td></tr>';
+	     						if(scheduleData["schedule"][w]["Predictions"][p]["Seconds"] > 0){
+	     							var updatedTime = "00:" + scheduleData["schedule"][w]["Predictions"][p]["Seconds"]/60 + ":" + scheduleData["schedule"][w]["Predictions"][p]["Seconds"]%60;
+	     						}
+	     						else{
+	     							var updatedTime = scheduleData["schedule"][w]["Predictions"][p]["Seconds"];
+	     						}
+								station_info += '<tr><td>' + scheduleData["line"] + '</td><td>' + scheduleData["schedule"][w]["TripID"] + '</td><td>' + scheduleData["schedule"][w]["Destination"] + '</td><td>' + updatedTime + '</td></tr>';
 							}
 							//console.log(scheduleData["schedule"][w]["Predictions"][p]);
 						}
