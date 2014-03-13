@@ -74,10 +74,30 @@ function initialize(position) {
 					var closestStation = data[i]["stations"][j]["station_name"];
 				}
 					station_info = "<strong>" + data[i]["stations"][j]["station_name"] + "</strong>";
-					extension = parse_API_data(scheduleData, data[i]["stations"][j]["station_name"]);
-					console.log(extension);
-					station_info = station_info + extension;
-				
+					//extension = parse_API_data(scheduleData, data[i]["stations"][j]["station_name"]);
+					//console.log(extension);
+					//station_info = station_info + extension;
+					/*****New section starts here*******/
+					var g = 0;
+					var stops;
+					for(var w in scheduleData["schedule"]){
+						for(var p in scheduleData["schedule"][w]["Predictions"]){
+							if(scheduleData["schedule"][w]["Predictions"][p]["Stop"] == stationName){
+								if(g == 0){
+	     							station_info += '<table id="schedule"><tr><th>Line</th><th>Trip #</th><th>Direction</th><th>Time Remaining</th></tr>';
+	     							g++;
+	     						}
+								station_info += '<tr><td>' + scheduleData["line"] + '</td><td>' + scheduleData["schedule"][w]["TripID"] + '</td><td>' + scheduleData["schedule"][w]["Destination"] + '</td><td>' + scheduleData["schedule"][w]["Predictions"][p]["Seconds"] + '</td></tr>';
+							}
+							//console.log(scheduleData["schedule"][w]["Predictions"][p]);
+						}
+					}
+					if(g==0){
+						station_info = "No incoming train data available at this time.";
+					}
+					else{
+						station_info += '</table>';
+					}
 				//create marker for each station in specified line
 				stationLoc = new google.maps.LatLng(data[i]["stations"][j]["latitude"],data[i]["stations"][j]["longitude"]);
 				stationMarkers.push(createMarker(stationLoc, data[i]["stations"][j]["station_name"], map, station_info));
