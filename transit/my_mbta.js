@@ -12,7 +12,7 @@ function parse_json(){
 			line_color = scheduleData["line"];
 			for(var w in scheduleData["schedule"]){
 				for(var p in scheduleData["schedule"][w]["Predictions"]){
-					console.log(["schedule"][w]["Predictions"][p]);
+					console.log(scheduleData["schedule"][w]["Predictions"][p]);
 				}
 			}
 			//console.log(scheduleData["schedule"][0]["Predictions"][0]);
