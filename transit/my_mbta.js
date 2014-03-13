@@ -82,7 +82,7 @@ function initialize(position) {
 					var stops;
 					for(var w in scheduleData["schedule"]){
 						for(var p in scheduleData["schedule"][w]["Predictions"]){
-							if(scheduleData["schedule"][w]["Predictions"][p]["Stop"] == stationName){
+							if(scheduleData["schedule"][w]["Predictions"][p]["Stop"] == data[i]["stations"][j]["station_name"]){
 								if(g == 0){
 	     							station_info += '<table id="schedule"><tr><th>Line</th><th>Trip #</th><th>Direction</th><th>Time Remaining</th></tr>';
 	     							g++;
