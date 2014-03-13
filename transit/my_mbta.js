@@ -10,11 +10,7 @@ function parse_json(){
 		if(xhr.readyState==4 && xhr.status==200){
 			scheduleData = JSON.parse(xhr.responseText);
 			line_color = scheduleData["line"];
-			for(var w in scheduleData["schedule"]){
-				for(var p in scheduleData["schedule"][w]["Predictions"]){
-					console.log(scheduleData["schedule"][w]["Predictions"]);
-				}
-			}
+
 			//console.log(scheduleData["schedule"][0]["Predictions"][0]);
 			if(navigator.geolocation){
 				navigator.geolocation.getCurrentPosition(initialize);
@@ -151,6 +147,11 @@ function createMarker(pos, title, map){
 		title: title,
 		icon: custom_icon
 	});
+	for(var w in scheduleData["schedule"]){
+		for(var p in scheduleData["schedule"][w]["Predictions"]){
+			console.log(scheduleData["schedule"][w]["Predictions"]);
+		}
+	}
 	google.maps.event.addListener(marker, 'click', function(){
 		content = "<strong>" + title + "</strong>";
 		infoWindow.setContent(content);
