@@ -10,7 +10,12 @@ function parse_json(){
 		if(xhr.readyState==4 && xhr.status==200){
 			scheduleData = JSON.parse(xhr.responseText);
 			line_color = scheduleData["line"];
-			console.log(scheduleData["schedule"][0]["Predictions"][0]);
+			for(var w in scheduleData["schedule"]){
+				for(for p in scheduleData["schedule"][w]["Predictions"]){
+					console.log(["schedule"][0]["Predictions"][p]);
+				}
+			}
+			//console.log(scheduleData["schedule"][0]["Predictions"][0]);
 			if(navigator.geolocation){
 				navigator.geolocation.getCurrentPosition(initialize);
 			}
