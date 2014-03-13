@@ -10,7 +10,7 @@ function parse_json(){
 		if(xhr.readyState==4 && xhr.status==200){
 			scheduleData = JSON.parse(xhr.responseText);
 			line_color = scheduleData["line"];
-				console.log(line_color+"now?");
+				console.log(line_color+" table1");
 			if(navigator.geolocation){
 				navigator.geolocation.getCurrentPosition(initialize);
 			}
@@ -147,9 +147,8 @@ function createMarker(pos, title, map){
 		title: title,
 		icon: custom_icon
 	});
-	content = "<strong>" + title + "</strong>";
-	
 	google.maps.event.addListener(marker, 'click', function(){
+		content = "<strong>" + title + "</strong>";
 		infoWindow.setContent(content);
 		infoWindow.open(map, marker);
 	});
