@@ -147,8 +147,10 @@ function createMarker(pos, title, map){
 		title: title,
 		icon: custom_icon
 	});
+	content = "<strong>" + title + "</strong>";
+	
 	google.maps.event.addListener(marker, 'click', function(){
-		infoWindow.setContent(title);
+		infoWindow.setContent(content);
 		infoWindow.open(map, marker);
 	});
 	marker.setMap(map);
